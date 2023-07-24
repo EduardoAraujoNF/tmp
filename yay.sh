@@ -20,14 +20,14 @@ fi
 echo '---------------------------'
 echo -en "Enabling Chaotic repository"
 echo 'Installing the key...'
-pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com >> log
-pacman-key --lsign-key 3056513887B78AEB >> log
+sudo pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com >> log
+sudo pacman-key --lsign-key 3056513887B78AEB >> log
 
 echo 'Downloading the keyring...'
-pacman -U --noconfirm 'https://geo-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' >> log
+sudo pacman -U --noconfirm 'https://geo-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' >> log
 
 echo 'Downloading the mirrorlist...'
-pacman -U --noconfirm 'https://geo-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' >> log
+sudo pacman -U --noconfirm 'https://geo-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' >> log
 
 if [ "${chaoticAurAppend}" -ne 0 ]; then
     echo 'Appending Chaotic in pacman.conf...'
@@ -35,7 +35,7 @@ if [ "${chaoticAurAppend}" -ne 0 ]; then
 fi
 
 echo 'Refreshing the mirrorlists...'
-pacman -Sy >> log
+sudo pacman -Sy >> log
 
 echo 'Chaotic has been successfully installed!'
 exit 0
