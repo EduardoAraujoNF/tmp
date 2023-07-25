@@ -15,7 +15,7 @@ sudo pacman -U --noconfirm 'https://geo-mirror.chaotic.cx/chaotic-aur/chaotic-mi
 
 if [ "${chaoticAurAppend}" -ne 0 ]; then
     echo 'Appending Chaotic in pacman.conf...'
-    echo -e "\r\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
+    sudo echo -e "\r\n[chaotic-aur]\nInclude = /etc/pacman.d/chaotic-mirrorlist" >> /etc/pacman.conf
 fi
 
 echo 'Refreshing the mirrorlists...'
